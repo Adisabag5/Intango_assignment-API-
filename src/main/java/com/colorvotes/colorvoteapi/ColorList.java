@@ -23,8 +23,8 @@ public class ColorList {
         return highest_vote_count;
     }
 
-    public void setTotal_votes(int total_votes) {
-        this.total_votes = total_votes;
+    public void setTotal_votes() {
+        this.total_votes++;
     }
 
     public void setHighest_vote_count(int highest_vote_count) {

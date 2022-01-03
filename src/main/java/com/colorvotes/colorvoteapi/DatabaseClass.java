@@ -1,5 +1,7 @@
 package com.colorvotes.colorvoteapi;
 
+import org.springframework.scheduling.annotation.Async;
+
 public class DatabaseClass {
     public static ColorList globalColorList = new ColorList(
             new Color[]
@@ -20,9 +22,9 @@ public class DatabaseClass {
 
     public static Boolean increaseVotesById(int id){
         if(globalColorList.getColorList()[id] != null){
+            globalColorList.setTotal_votes();
             globalColorList.getColorList()[id].increaseVotesByOne();
-            globalColorList.setTotal_votes(globalColorList.getTotal_votes() + 1);
-            getHighestVoteCount();
+            globalColorList.setHighest_vote_count(getHighestVoteCount());
             return true;
         }
         return false;
